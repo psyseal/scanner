@@ -1,0 +1,22 @@
+{
+  "name": "psyseal",
+  "version": "0.3.2",
+  "description": "Revisión local y de solo lectura de agentes de IA (OpenClaw, Hermes Agent, nanobot, PicoClaw, ZeroClaw, NanoClaw y cualquier carpeta de agente), más limpieza con respaldo y aprobación, y sello firmado. Sin dependencias.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "psyseal-scan": "scripts/psyseal-scan.mjs",
+    "psyseal-fix": "scripts/psyseal-fix.mjs",
+    "psyseal-seal": "scripts/psyseal-seal.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "scan": "node scripts/psyseal-scan.mjs",
+    "fix": "node scripts/psyseal-fix.mjs",
+    "test": "node --test test/json5-util.test.mjs test/pricing-config-cost.test.mjs test/detectors.test.mjs test/e2e-safety.test.mjs test/platforms.test.mjs test/fix.test.mjs test/seal.test.mjs",
+    "seal": "node scripts/psyseal-seal.mjs"
+  },
+  "license": "SEE LICENSE IN LICENSE.md"
+}
