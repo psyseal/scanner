@@ -11,6 +11,7 @@ const HELP = {
 Busca por sí mismo los agentes de OpenClaw, Hermes Agent, nanobot, PicoClaw, ZeroClaw y NanoClaw que haya en esta computadora.
 
 Uso: node scripts/psyseal-scan.mjs [opciones]
+     node scripts/psyseal-scan.mjs mcp     (servidor MCP por stdio, para Claude, Cursor, Codex y otros clientes MCP)
 
   --path <carpeta>         Revisa esa carpeta (cualquier agente; si no reconoce la plataforma, revisa credenciales y memoria)
   --platform <id>          Solo esa plataforma: openclaw, hermes, nanobot, picoclaw, zeroclaw, nanoclaw
@@ -35,6 +36,7 @@ Códigos de salida: 0 sin hallazgos altos · 1 hay hallazgos altos · 2 error de
 Finds the OpenClaw, Hermes Agent, nanobot, PicoClaw, ZeroClaw and NanoClaw agents on this computer by itself.
 
 Usage: node scripts/psyseal-scan.mjs [options]
+       node scripts/psyseal-scan.mjs mcp     (MCP server over stdio, for Claude, Cursor, Codex and other MCP clients)
 
   --path <folder>          Review that folder (any agent; if the platform is unknown, it checks credentials and memory)
   --platform <id>          Only that platform: openclaw, hermes, nanobot, picoclaw, zeroclaw, nanoclaw
@@ -157,4 +159,13 @@ function main() {
   return report.summary.counts.high > 0 && !args.exitZero ? 1 : 0;
 }
 
-process.exitCode = main();
+const argv0 = process.argv[2];
+if (argv0 === 'mcp' && process.argv.length === 3) {
+  const { serveMcp } = await import('../src/mcp.mjs');
+  serveMcp();
+} else if (argv0 === 'mcp') {
+  process.stderr.write('Usage: psyseal-scan mcp   (no options; the MCP client passes them per call)\n');
+  process.exitCode = 2;
+} else {
+  process.exitCode = main();
+}

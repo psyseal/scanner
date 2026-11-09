@@ -60,7 +60,7 @@ Offline, read-only review of the AI agents on this machine. Every finding comes 
 
 ## When to use it
 
-The owner asks to audit or clean the agent's memory, to understand a high bill, to check for leaked keys, or to check whether memory was tampered with.
+The owner asks to check or clean the agent's memory, to understand a high bill, to check for leaked keys, or to check whether memory was tampered with.
 
 ## Run
 

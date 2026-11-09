@@ -62,8 +62,8 @@ export const STR = {
     installLine: (inst, billing) =>
       inst.platform === 'openclaw'
         ? `${inst.name} · config: ${inst.configPath} (${inst.configFound ? 'leída' : 'no encontrada; uso valores por defecto'}) · Anthropic se factura: ${{ api: 'por API', subscription: 'por suscripción', mixed: 'mixto', unknown: 'sin datos (asumo API)' }[billing] || 'sin datos'}`
-        : `${inst.name} · ${inst.root}`,
-    agentLine: (a) => `Agente: ${a.id} (${a.platformName}) · Modelo: ${a.model || 'sin definir'} · Carpeta: ${a.workspace}`,
+        : `${inst.platform === 'generic' ? 'Carpeta de agente' : inst.name} · ${inst.root}`,
+    agentLine: (a) => `Agente: ${a.id} (${a.platform === 'generic' ? 'Carpeta de agente' : a.platformName}) · Modelo: ${a.model || 'sin definir'} · Carpeta: ${a.workspace}`,
     secBoot: '1) Lo que tu agente carga en cada mensaje',
     secBootGeneric: '1) Archivos de instrucciones y memoria encontrados',
     colFile: 'Archivo',
@@ -263,8 +263,8 @@ export const STR = {
     installLine: (inst, billing) =>
       inst.platform === 'openclaw'
         ? `${inst.name} · config: ${inst.configPath} (${inst.configFound ? 'read' : 'not found; using defaults'}) · Anthropic billing: ${{ api: 'API', subscription: 'subscription', mixed: 'mixed', unknown: 'unknown (assuming API)' }[billing] || 'unknown'}`
-        : `${inst.name} · ${inst.root}`,
-    agentLine: (a) => `Agent: ${a.id} (${a.platformName}) · Model: ${a.model || 'unset'} · Folder: ${a.workspace}`,
+        : `${inst.platform === 'generic' ? 'Agent folder' : inst.name} · ${inst.root}`,
+    agentLine: (a) => `Agent: ${a.id} (${a.platform === 'generic' ? 'Agent folder' : a.platformName}) · Model: ${a.model || 'unset'} · Folder: ${a.workspace}`,
     secBoot: '1) What your agent loads on every message',
     secBootGeneric: '1) Instruction and memory files found',
     colFile: 'File',

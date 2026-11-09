@@ -28,6 +28,8 @@ Revisa:
 
 Cada hallazgo trae el arreglo concreto. Opciones: `--help`. Códigos de salida: 0 sin hallazgos altos · 1 hay hallazgos altos · 2 error de uso.
 
+También funciona como servidor MCP, con una sola herramienta de solo lectura (`scan_agents`): `node scripts/psyseal-scan.mjs mcp`. El escáner gratis también está en npm: `npx psyseal-scan` y, como servidor MCP, `npx -y psyseal-scan mcp`.
+
 **Qué no hace:** no usa la red, no escribe archivos, no ejecuta otros programas, no sigue enlaces simbólicos y no imprime tu memoria ni tus claves. Los costos son estimaciones, no promesas. Los detectores marcan para revisar y pueden dejar pasar casos.
 
 ### 2. Limpieza (de pago, con respaldo)
@@ -72,6 +74,8 @@ node scripts/psyseal-scan.mjs --platform hermes --lang en
 ```
 
 It checks what your agent loads on every message, how often its scheduled tasks and heartbeats run and what they cost, plaintext credentials (type, file and line only, never the value), and poisoned or bloated memory. Every finding comes with a concrete fix.
+
+It also works as an MCP server with one read-only tool (`scan_agents`): `node scripts/psyseal-scan.mjs mcp`. The free scanner is also on npm: `npx psyseal-scan`, and as an MCP server, `npx -y psyseal-scan mcp`.
 
 **What it does not do:** no network, no file writes, no child processes, no symlink following, and it never prints your memory or your keys. Costs are estimates, not promises.
 

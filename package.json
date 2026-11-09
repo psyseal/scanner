@@ -1,6 +1,6 @@
 {
   "name": "psyseal",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Revisión local y de solo lectura de agentes de IA (OpenClaw, Hermes Agent, nanobot, PicoClaw, ZeroClaw, NanoClaw y cualquier carpeta de agente), más limpieza con respaldo y aprobación, y sello firmado. Sin dependencias.",
   "type": "module",
   "private": true,

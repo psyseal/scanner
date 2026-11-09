@@ -6,7 +6,7 @@ import path from 'node:path';
 import { isDir, listMarkdown, readMany, secretStores } from './common.mjs';
 
 export const ID = 'generic';
-export const NAME = 'Carpeta de agente';
+export const NAME = 'Agent folder'; // el reporte de texto lo traduce (i18n.mjs)
 
 const BOOT_RE = /^(?:agents?|soul|identity|claude|gemini|tools|bootstrap|system|instructions?|persona|rules?)(?:\.[a-z]+)?\.md$/i;
 const MEMORY_RE = /^(?:memory|memories|user|history|notes?|context|knowledge)(?:[._-].*)?\.md$/i;
